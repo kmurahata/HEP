@@ -1,6 +1,23 @@
-- name: Create config.json
-  run: |
-    echo '{
-      "API_KEY": "${{ secrets.OPENAI_API_KEY }}",
-      "API_URL": "https://api.openai.com/v1/chat/completions"
-    }' > config.json
+name: Deploy Config
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create config.json
+        run: |
+          echo '{
+            "API_KEY": "${{ secrets.OPENAI_API_KEY }}",
+            "API_URL": "https://api.openai.com/v1/chat/completions"
+          }' > config.json
+
+      - name: Verify config.json
+        run: cat config.json
