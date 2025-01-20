@@ -1,0 +1,25 @@
+name: Deploy API Key
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create API Key file
+        run: |
+          echo '{"API_KEY": "'${{ secrets.OPENAI_API_KEY }}'"}' > public/api-key.json
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add public/api-key.json
+          git commit -m "Deploy API key"
+          git push origin main
