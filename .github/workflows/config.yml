@@ -1,0 +1,25 @@
+name: Create Config File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create config.json
+        run: |
+          echo '{ "apiKey": "${{ secrets.OPENAI_API_KEY }}" }' > config.json
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+          git add config.json
+          git commit -m "Add config.json [skip ci]" || exit 0
+          git push
