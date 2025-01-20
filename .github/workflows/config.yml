@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy Config
 
 on:
   push:
@@ -6,25 +6,18 @@ on:
       - main
 
 jobs:
-  build:
+  create-config:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Create config.json
+        run: |
+          echo '{
+            "API_KEY": "${{ secrets.OPENAI_API_KEY }}",
+            "API_URL": "https://api.openai.com/v1/chat/completions"
+          }' > config.json
 
-    - name: Create public directory (if not exists)
-      run: mkdir -p public
-
-    - name: Copy config.json to public/api-key.json
-      run: cp config.json public/api-key.json
-
-    - name: Build the app
-      run: npm install && npm run build
-
-    - name: Deploy to GitHub Pages
-      run: npm run deploy
+      - name: Verify config.json
+        run: cat config.json
