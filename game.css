@@ -161,3 +161,11 @@ body {
   cursor: not-allowed;
   transform: none;
 }
+
+.btn-skip {
+  width: 100%;
+  margin-top: 8px;
+  background: #1a3a1a;
+  border-color: #2a6a2a;
+  color: #88ff88;
+}

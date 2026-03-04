@@ -316,6 +316,13 @@ document.getElementById('btn-train').addEventListener('click', () => {
   updateUI();
 });
 
+document.getElementById('btn-skip').addEventListener('click', () => {
+  if (state.locked || state.hp <= 0) return;
+  for (let i = 0; i < 60; i++) gameTick();
+  setMessage('1日が過ぎた！');
+  spawnParticles(80, 60, '#88ff88', 15);
+});
+
 // ============================================================
 // メインループ
 // ============================================================
