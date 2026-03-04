@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ピクセルモン育成ゲーム</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <div class="game-wrapper">
+    <h1 class="game-title">ピクセルモン</h1>
+
+    <div class="screen">
+      <div class="screen-inner">
+        <!-- 背景 -->
+        <canvas id="bgCanvas" width="160" height="120"></canvas>
+        <!-- キャラクター -->
+        <canvas id="creatureCanvas" width="160" height="120"></canvas>
+        <!-- エフェクト -->
+        <canvas id="fxCanvas" width="160" height="120"></canvas>
+      </div>
+
+      <div class="status-bar">
+        <div class="status-item">
+          <span class="status-label">HP</span>
+          <div class="bar-bg"><div class="bar hp-bar" id="hp-bar"></div></div>
+        </div>
+        <div class="status-item">
+          <span class="status-label">お腹</span>
+          <div class="bar-bg"><div class="bar hunger-bar" id="hunger-bar"></div></div>
+        </div>
+        <div class="status-item">
+          <span class="status-label">機嫌</span>
+          <div class="bar-bg"><div class="bar happy-bar" id="happy-bar"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <div class="creature-name" id="creature-name">タマゴ</div>
+      <div class="creature-stage" id="creature-stage">ステージ: 赤ちゃん</div>
+      <div class="creature-age" id="creature-age">年齢: 0日</div>
+    </div>
+
+    <div class="message-box" id="message-box">育てていくよ！</div>
+
+    <div class="buttons">
+      <button class="btn" id="btn-feed">🍖 ご飯</button>
+      <button class="btn" id="btn-play">🎮 あそぶ</button>
+      <button class="btn" id="btn-sleep">💤 ねる</button>
+      <button class="btn" id="btn-train">💪 きたえる</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
