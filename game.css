@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a1a2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Courier New', monospace;
+}
+
+.game-wrapper {
+  width: 320px;
+  background: #16213e;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 0 30px rgba(100, 200, 255, 0.3);
+  border: 2px solid #0f3460;
+}
+
+.game-title {
+  text-align: center;
+  color: #e94560;
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.7);
+}
+
+/* スクリーン */
+.screen {
+  background: #0a0a1a;
+  border-radius: 8px;
+  padding: 8px;
+  border: 2px solid #0f3460;
+  margin-bottom: 10px;
+}
+
+.screen-inner {
+  position: relative;
+  width: 160px;
+  height: 120px;
+  margin: 0 auto;
+  image-rendering: pixelated;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.screen-inner canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  image-rendering: pixelated;
+}
+
+.status-bar {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-label {
+  color: #aaa;
+  font-size: 10px;
+  width: 28px;
+  text-align: right;
+}
+
+.bar-bg {
+  flex: 1;
+  height: 8px;
+  background: #0f3460;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.hp-bar     { background: #e94560; width: 100%; }
+.hunger-bar { background: #f5a623; width: 80%; }
+.happy-bar  { background: #4ade80; width: 70%; }
+
+/* 情報パネル */
+.info-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+
+.creature-name {
+  color: #e94560;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.creature-stage,
+.creature-age {
+  color: #888;
+  font-size: 10px;
+}
+
+/* メッセージボックス */
+.message-box {
+  background: #0f3460;
+  color: #e0e0ff;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  min-height: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid #1a4a80;
+}
+
+/* ボタン */
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn {
+  background: #0f3460;
+  color: #e0e0ff;
+  border: 1px solid #1a5a8a;
+  border-radius: 8px;
+  padding: 8px 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  font-family: 'Courier New', monospace;
+}
+
+.btn:hover {
+  background: #1a5a8a;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
